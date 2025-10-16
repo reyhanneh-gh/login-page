@@ -1,1 +1,8 @@
 @import "tailwindcss";
+/* npx @tailwindcss/cli -i ./src/style/master.css -o ./src/style/output.css --watch */
+
+.btnBg {
+    background: #FEA5D5;
+    background: linear-gradient(180deg, rgba(254, 165, 213, 1) 0%, rgb(253, 255, 191) 50%, rgba(254, 165, 213, 1) 100%);
+}
+/* hover:rotate-[-165deg] hover:origin-center hover:left-[-50%] hover:translate-x-[30%] duration-1000 */
