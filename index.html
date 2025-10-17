@@ -71,6 +71,7 @@
         x++
     })
     // ----------------------reg ex-------------------------
+    //email
     let flag = 0
     if (_email == "" || _email == null || _email.search(/<script>/) > 0) {
         _error.innerText = '*Invalid Email Address*'
@@ -84,7 +85,21 @@
         _error.innerText = '*Invalid Email Address*'
         flag++
     }
+    //password
+    if (_pass == '' || _pass == null || _pass.search(/<script>/)) {
+        _error.innerText = 'Invalid Password'
+        flag++
 
+    } else if (
+        _pass.search(/[A-Z]/) == -1 ||
+        _pass.search(/[a-z]/) == -1 ||
+        _pass.search(/[0-9]/) == -1 ||
+        _pass.search(/[!@#$%^&*()_+]/) == -1
+    ) {
+        _error.innerText = 'Password is incorrect'
+    }
+
+    if (flag) event.preventDefault()
 </script>
 
 </html>
