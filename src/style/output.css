@@ -7,9 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-800: oklch(44.4% 0.177 26.899);
     --color-pink-300: oklch(82.3% 0.12 346.018);
-    --color-pink-600: oklch(59.2% 0.249 0.584);
     --color-pink-800: oklch(45.9% 0.187 3.815);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
@@ -196,17 +194,8 @@
   .right-2\.5 {
     right: calc(var(--spacing) * 2.5);
   }
-  .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
-  }
-  .bottom-\[-10\%\] {
-    bottom: -10%;
-  }
   .bottom-\[-30\%\] {
     bottom: -30%;
-  }
-  .bottom-\[-100\%\] {
-    bottom: -100%;
   }
   .bottom-\[115\%\] {
     bottom: 115%;
@@ -326,9 +315,6 @@
   .flex-col {
     flex-direction: column;
   }
-  .flex-wrap {
-    flex-wrap: wrap;
-  }
   .items-center {
     align-items: center;
   }
@@ -390,14 +376,8 @@
   .text-gray-400 {
     color: var(--color-gray-400);
   }
-  .text-pink-600 {
-    color: var(--color-pink-600);
-  }
   .text-pink-800 {
     color: var(--color-pink-800);
-  }
-  .text-red-800 {
-    color: var(--color-red-800);
   }
   .text-white {
     color: var(--color-white);
@@ -434,32 +414,10 @@
       font-size: 14px;
     }
   }
-  .hover\:left-0 {
-    &:hover {
-      @media (hover: hover) {
-        left: calc(var(--spacing) * 0);
-      }
-    }
-  }
-  .hover\:translate-x-\[-55\%\] {
-    &:hover {
-      @media (hover: hover) {
-        --tw-translate-x: -55%;
-        translate: var(--tw-translate-x) var(--tw-translate-y);
-      }
-    }
-  }
   .hover\:scale-\[\.9\] {
     &:hover {
       @media (hover: hover) {
         scale: .9;
-      }
-    }
-  }
-  .hover\:rotate-\[195deg\] {
-    &:hover {
-      @media (hover: hover) {
-        rotate: 195deg;
       }
     }
   }
@@ -473,9 +431,34 @@
       width: 40%;
     }
   }
+  .md\:z-50 {
+    @media (width >= 48rem) {
+      z-index: 50;
+    }
+  }
   .md\:w-3\/4 {
     @media (width >= 48rem) {
       width: calc(3/4 * 100%);
+    }
+  }
+  .md\:w-\[50\%\] {
+    @media (width >= 48rem) {
+      width: 50%;
+    }
+  }
+  .md\:bg-\[\#fea5d4\] {
+    @media (width >= 48rem) {
+      background-color: #fea5d4;
+    }
+  }
+  .md\:bg-gray-300 {
+    @media (width >= 48rem) {
+      background-color: var(--color-gray-300);
+    }
+  }
+  .md\:bg-pink-300 {
+    @media (width >= 48rem) {
+      background-color: var(--color-pink-300);
     }
   }
   .lg\:w-1\/2 {
@@ -486,7 +469,7 @@
 }
 .btnBg {
   background: #FEA5D5;
-  background: linear-gradient(180deg, rgba(254, 165, 213, 1) 0%, rgb(253, 255, 191) 50%, rgba(254, 165, 213, 1) 100%);
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(254, 165, 213, 1) 100%);
 }
 .spanSize {
   font-size: 20px !important;
