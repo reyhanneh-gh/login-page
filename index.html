@@ -42,7 +42,7 @@
             <button id="logBtn"
                 class="mt-5 w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
 
-            <p id="error" class="absolute bottom-[-30%] text-pink-800 text-center">your pw in incorrect</p>
+            <p id="error" class="absolute bottom-[-30%] text-pink-800 text-center"></p>
             <figure
                 class="absolute w-[100px] h-fit bottom-[115%] translate-y-[27%] left-[50%] translate-x-[-50%] -z-50">
                 <img class="object-cover" src="src/assets/img/body.png" alt="">
@@ -91,6 +91,7 @@
         flag++
 
     } else if (
+        _pass.length < 8 ||
         _pass.search(/[A-Z]/) == -1 ||
         _pass.search(/[a-z]/) == -1 ||
         _pass.search(/[0-9]/) == -1 ||
