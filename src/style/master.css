@@ -5,8 +5,15 @@
     background: #FEA5D5;
     background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(254, 165, 213, 1) 100%);
 }
-/* hover:rotate-[-165deg] hover:origin-center hover:left-[-50%] hover:translate-x-[30%] duration-1000 */
 
-.spanSize{
+.spanSize {
     font-size: 20px !important;
+}
+
+.favFont1 {
+    font-family: "Bagel Fat One", system-ui;
+}
+
+.btnFont {
+    font-family: "Zain", sans-serif;
 }

@@ -136,24 +136,24 @@
         hands.style.transition = '1s'
     })
 
-    // // ----------------password visibility------------------
-    // sp.addEventListener('click', () => {
-    //     if (x % 2 === 0) {
-    //         sp.innerText = 'visibility'
-    //         _pass.type = 'text'
-    //         hands.style.top = '85%'
-    //         hands.style.opacity = '0'
-    //         hands.style.transition = '1s'
-    //     } else {
-    //         sp.innerText = 'visibility_off'
-    //         _pass.type = 'password'
-    //         hands.style.top = '45%'
-    //         hands.style.opacity = '1'
-    //         hands.style.transition = '1s'
-    //     }
+    // ----------------password visibility------------------
+    sp.addEventListener('click', () => {
+        if (x % 2 === 0) {
+            sp.innerText = 'visibility'
+            _pass.type = 'text'
+            hands.style.top = '85%'
+            hands.style.opacity = '0'
+            hands.style.transition = '1s'
+        } else {
+            sp.innerText = 'visibility_off'
+            _pass.type = 'password'
+            hands.style.top = '45%'
+            hands.style.opacity = '1'
+            hands.style.transition = '1s'
+        }
 
-    //     x++
-    // })
+        x++
+    })
 </script>
 
 </html>
