@@ -31,10 +31,10 @@
         <!-- -------------------------second---------------------------- -->
         <div
             class="w-[50%] h-fit flex flex-col justify-center items-center gap-2.5 absolute right-0 top-[50%] translate-y-[-50%] z-20">
-            <input type="email" placeholder="Email" name="" id=""
+            <input id="email" type="email" placeholder="Email" name="" id=""
                 class="w-3/4 bg-gray-200 px-2.5 py-1 rounded-4xl placeholder:text-[14px]">
             <div class="w-3/4 h-fit relative">
-                <input type="password" placeholder="Password"
+                <input id="pass" type="password" placeholder="Password"
                     class="w-full bg-gray-200 px-2.5 py-1 rounded-4xl placeholder:text-[14px]">
                 <span
                     class="material-symbols-outlined absolute right-2.5 top-[50%] translate-y-[-50%] z-50 text-gray-400 cursor-pointer spanSize">visibility_off</span>
@@ -52,15 +52,18 @@
     </section>
 </body>
 <script>
-    let inp = document.querySelectorAll('input')
+    let _email = document.getElementById('email')
+    let _pass = document.getElementById('pass')
     let sp = document.querySelector('span')
     let x = 0
 
     sp.addEventListener('click', () => {
         if (x % 2 === 0) {
             sp.innerText = 'visibility'
+            _pass.type = 'text'
         } else {
             sp.innerText = 'visibility_off'
+            _pass.type = 'password'
         }
         x++
     })
