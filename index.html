@@ -109,7 +109,7 @@
         }
         //pass
         if (_pass.value == '' || _pass.value == null || _pass.value.search(/<script>/) >= 0) {
-            _error.innerText = 'Invalid Password'
+            _error.innerText = '*Invalid Password*'
             flag++
         } else if (
             _pass.value.length < 8 ||
@@ -118,7 +118,7 @@
             _pass.value.search(/[0-9]/) == -1 ||
             _pass.value.search(/[!@#$%^&*()_+]/) == -1
         ) {
-            _error.innerText = 'Password is incorrect'
+            _error.innerText = '*Password is incorrect*'
             flag++
         }
 
