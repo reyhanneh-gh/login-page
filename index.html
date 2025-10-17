@@ -16,10 +16,10 @@
     <section
         class="w-11/12 sm:w-10/12 md:w-3/4 lg:w-1/2 h-[400px] bg-white rounded-[10px] relative shadow-2xl overflow-hidden">
         <div id="pink" class="w-[110%] h-[200%] bg-[#fea5d4] absolute top-[50%] left-[50%] translate-y-[-50%] duration-[2s]
-            rotate-[15deg] hover:left-0 hover:translate-x-[-55%] hover:rotate-[195deg] z-50 hidden">
+            rotate-[15deg] z-50">
         </div>
         <!-- -------------------------first---------------------------- -->
-        <div class="w-[50%] h-full flex flex-col justify-center items-center gap-2.5">
+        <div id="first" class="w-[50%] h-full flex flex-col justify-center items-center gap-2.5">
             <button
                 class="w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
             <button
@@ -29,8 +29,8 @@
             </figure>
         </div>
         <!-- -------------------------second---------------------------- -->
-        <form action="reg.php" onsubmit="sendform(event)" name="register"
-            class="w-[50%] h-fit flex flex-col justify-center items-center gap-2.5 absolute right-0 top-[50%] translate-y-[-50%] z-20">
+        <form id="second" action="reg.php" onsubmit="sendform(event)" name="register"
+            class="w-[50%] h-fit flex flex-col justify-center items-center gap-2.5 absolute right-0 top-[50%] translate-y-[-50%] z-20 opacity-0">
             <input id="email" type="email" placeholder="Email" name="email"
                 class="w-3/4 bg-gray-200 px-2.5 py-1 rounded-4xl placeholder:text-[14px]">
             <div class="w-3/4 h-fit relative">
@@ -53,8 +53,24 @@
     </section>
 </body>
 <script>
+    let Btn = document.querySelectorAll('div>button')
+    let pink = document.getElementById('pink')
+    let firstSection = document.getElementById('first')
+    let secondSection = document.getElementById('second')
+    Btn.forEach((val) => {
+        val.addEventListener('click', () => {
+            pink.style.left = '0'
+            pink.style.transform = 'translateX(-55%) rotate(-175deg)'
+            firstSection.style.opacity = '0'
+            firstSection.style.transition = '1s'
+            secondSection.style.opacity = '1'
+            secondSection.style.transition = '3s'
+        })
+    })
+
+
     let _email = document.forms['register']['email'].value
-    let _pass = document.forms['register']['pass'].value
+    let _pass = document.forms['register']['pass']
     let sp = document.querySelector('span')
     let _error = document.getElementById('error')
     let x = 0
@@ -72,35 +88,39 @@
     })
     // ----------------------reg ex-------------------------
     //email
-    let flag = 0
-    if (_email == "" || _email == null || _email.search(/<script>/) > 0) {
-        _error.innerText = '*Invalid Email Address*'
-        flag++
-    } else if (
-        _email.search(/['@']/) <= 2 ||
-        _email.search(/['.']/) == -1 ||
-        _email.lastIndexOf('.') + 2 > _email.length ||
-        _email.length < 10
-    ) {
-        _error.innerText = '*Invalid Email Address*'
-        flag++
-    }
-    //password
-    if (_pass == '' || _pass == null || _pass.search(/<script>/)) {
-        _error.innerText = 'Invalid Password'
-        flag++
+    _error.innerText = ""
+    function sendform() {
+        let flag = 0
+        if (_email == "" || _email == null || _email.search(/<script>/) > 0) {
+            _error.innerText = '*Invalid Email Address*'
+            flag++
+        } else if (
+            _email.search(/['@']/) <= 2 ||
+            _email.search(/['.']/) == -1 ||
+            _email.lastIndexOf('.') + 2 > _email.length + 1 ||
+            _email.length < 10
+        ) {
+            _error.innerText = '*Invalid Email Address*'
+            flag++
+        }
+        //password
+        if (_pass.value == '' || _pass.value == null || _pass.value.search(/<script>/)) {
+            _error.innerText = 'Invalid Password'
+            flag++
 
-    } else if (
-        _pass.length < 8 ||
-        _pass.search(/[A-Z]/) == -1 ||
-        _pass.search(/[a-z]/) == -1 ||
-        _pass.search(/[0-9]/) == -1 ||
-        _pass.search(/[!@#$%^&*()_+]/) == -1
-    ) {
-        _error.innerText = 'Password is incorrect'
-    }
+        } else if (
+            _pass.value.length < 8 ||
+            _pass.value.search(/[A-Z]/) == -1 ||
+            _pass.value.search(/[a-z]/) == -1 ||
+            _pass.value.search(/[0-9]/) == -1 ||
+            _pass.value.search(/[!@#$%^&*()_+]/) == -1
+        ) {
+            _error.innerText = 'Password is incorrect'
+            flag++
+        }
 
-    if (flag) event.preventDefault()
+        if (flag) event.preventDefault()
+    }
 </script>
 
 </html>
