@@ -29,34 +29,36 @@
             </figure>
         </div>
         <!-- -------------------------second---------------------------- -->
-        <div
+        <form action="reg.php" onsubmit="sendform(event)" name="register"
             class="w-[50%] h-fit flex flex-col justify-center items-center gap-2.5 absolute right-0 top-[50%] translate-y-[-50%] z-20">
-            <input id="email" type="email" placeholder="Email" name="" id=""
+            <input id="email" type="email" placeholder="Email" name="email"
                 class="w-3/4 bg-gray-200 px-2.5 py-1 rounded-4xl placeholder:text-[14px]">
             <div class="w-3/4 h-fit relative">
-                <input id="pass" type="password" placeholder="Password"
+                <input id="pass" type="password" placeholder="Password" name="pass"
                     class="w-full bg-gray-200 px-2.5 py-1 rounded-4xl placeholder:text-[14px]">
                 <span
                     class="material-symbols-outlined absolute right-2.5 top-[50%] translate-y-[-50%] z-50 text-gray-400 cursor-pointer spanSize">visibility_off</span>
             </div>
-
             <button id="logBtn"
                 class="mt-5 w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
+
+            <p id="error" class="absolute bottom-[-30%] text-pink-800 text-center">your pw in incorrect</p>
             <figure
                 class="absolute w-[100px] h-fit bottom-[115%] translate-y-[27%] left-[50%] translate-x-[-50%] -z-50">
                 <img class="object-cover" src="src/assets/img/body.png" alt="">
                 <img class="w-[70px] absolute top-[45%] left-[50%] translate-x-[-50%]" src="src/assets/img/face.png"
                     alt="">
             </figure>
-        </div>
+        </form>
     </section>
 </body>
 <script>
-    let _email = document.getElementById('email')
-    let _pass = document.getElementById('pass')
+    let _email = document.forms['register']['email'].value
+    let _pass = document.forms['register']['pass'].value
     let sp = document.querySelector('span')
+    let _error = document.getElementById('error')
     let x = 0
-
+    // ----------------password visibility------------------
     sp.addEventListener('click', () => {
         if (x % 2 === 0) {
             sp.innerText = 'visibility'
@@ -65,8 +67,23 @@
             sp.innerText = 'visibility_off'
             _pass.type = 'password'
         }
+
         x++
     })
+    // ----------------------reg ex-------------------------
+    let flag = 0
+    if (_email == "" || _email == null || _email.search(/<script>/) > 0) {
+        _error.innerText = '*Invalid Email Address*'
+        flag++
+    } else if (
+        _email.search(/['@']/) <= 2 ||
+        _email.search(/['.']/) == -1 ||
+        _email.lastIndexOf('.') + 2 > _email.length ||
+        _email.length < 10
+    ) {
+        _error.innerText = '*Invalid Email Address*'
+        flag++
+    }
 
 </script>
 
