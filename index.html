@@ -8,37 +8,63 @@
     <link rel="stylesheet" href="src/style/output.css">
     <link rel="stylesheet" href="src/style/myfooter.css">
     <link rel="stylesheet" href="src/assets/css/fontello.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <title>login Page</title>
 </head>
 
 <body class="w-full h-[100vh] flex justify-center items-center bg-gray-300">
     <section
-        class="w-11/12 sm:w-10/12 md:w-3/4 lg:w-1/2 h-[400px] bg-white rounded-[10px] overflow-hidden relative shadow-2xl">
-        <div id="pink"
-            class="w-3/4 h-[500%] bg-pink-300 absolute z-50 left-[50%] top-[50%] translate-y-[-50%] rotate-[-15deg] origin-right hover:rotate-[-165deg] hover:origin-center hover:left-[-50%] hover:translate-x-[30%] duration-1000">
+        class="w-11/12 sm:w-10/12 md:w-3/4 lg:w-1/2 h-[400px] bg-white rounded-[10px] relative shadow-2xl overflow-hidden">
+        <div id="pink" class="w-[110%] h-[200%] bg-[#fea5d4] absolute top-[50%] left-[50%] translate-y-[-50%] duration-[2s]
+            rotate-[15deg] hover:left-0 hover:translate-x-[-55%] hover:rotate-[195deg] z-50 hidden">
         </div>
         <!-- -------------------------first---------------------------- -->
         <div class="w-[50%] h-full flex flex-col justify-center items-center gap-2.5">
             <button
-                class="w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white font-bold bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
+                class="w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
             <button
-                class="w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white font-bold bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Sign-Up</button>
+                class="w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Sign-Up</button>
             <figure class="absolute w-[100px] h-fit top-[100%] left-[-10px] translate-y-[-65%] rotate-[18deg] z-40">
                 <img class="object-cover" src="src/assets/img/Project (20251017013629).png" alt="">
             </figure>
         </div>
         <!-- -------------------------second---------------------------- -->
-        <div class="w-[50%] h-fit flex flex-col justify-center items-center gap-2.5 absolute right-0 top-[50%] translate-y-[-50%] z-20">
-            <input type="email" placeholder="Email" name="" id="" class="w-3/4 bg-gray-200 px-2.5 py-1 rounded-4xl">
-            <input type="password" placeholder="Password" class="w-3/4 bg-gray-200 px-2.5 py-1 rounded-4xl">
-            <button
-                class="mt-5 w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white font-bold bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
-            <figure class="absolute w-[100px] h-fit bottom-[115%] translate-y-[27%] left-[50%] translate-x-[-50%] -z-50">
+        <div
+            class="w-[50%] h-fit flex flex-col justify-center items-center gap-2.5 absolute right-0 top-[50%] translate-y-[-50%] z-20">
+            <input type="email" placeholder="Email" name="" id=""
+                class="w-3/4 bg-gray-200 px-2.5 py-1 rounded-4xl placeholder:text-[14px]">
+            <div class="w-3/4 h-fit relative">
+                <input type="password" placeholder="Password"
+                    class="w-full bg-gray-200 px-2.5 py-1 rounded-4xl placeholder:text-[14px]">
+                <span
+                    class="material-symbols-outlined absolute right-2.5 top-[50%] translate-y-[-50%] z-50 text-gray-400 cursor-pointer spanSize">visibility_off</span>
+            </div>
+
+            <button id="logBtn"
+                class="mt-5 w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
+            <figure
+                class="absolute w-[100px] h-fit bottom-[115%] translate-y-[27%] left-[50%] translate-x-[-50%] -z-50">
                 <img class="object-cover" src="src/assets/img/body.png" alt="">
-                <img class="w-[70px] absolute top-[45%] left-[50%] translate-x-[-50%]" src="src/assets/img/face.png" alt="">
+                <img class="w-[70px] absolute top-[45%] left-[50%] translate-x-[-50%]" src="src/assets/img/face.png"
+                    alt="">
             </figure>
         </div>
     </section>
 </body>
+<script>
+    let inp = document.querySelectorAll('input')
+    let sp = document.querySelector('span')
+    let x = 0
+
+    sp.addEventListener('click', () => {
+        if (x % 2 === 0) {
+            sp.innerText = 'visibility'
+        } else {
+            sp.innerText = 'visibility_off'
+        }
+        x++
+    })
+
+</script>
 
 </html>
