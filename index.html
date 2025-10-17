@@ -9,22 +9,24 @@
     <link rel="stylesheet" href="src/style/myfooter.css">
     <link rel="stylesheet" href="src/assets/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <title>login Page</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="w-full h-[100vh] flex justify-center items-center bg-pink-200 md:bg-gray-300">
     <section
         class="w-11/12 sm:w-10/12 md:w-3/4 lg:w-1/2 h-[400px] bg-white rounded-[10px] relative shadow-2xl overflow-hidden">
         <div id="pink" class="w-[110%] h-[200%] md:bg-[#fea5d4] absolute top-[50%] left-[50%] translate-y-[-50%] duration-[2s]
-            rotate-[15deg] md:z-50">
+            rotate-[15deg] md:z-50 hidden">
         </div>
         <!-- -------------------------first---------------------------- -->
         <div id="first" class="w-full md:w-[50%] h-full flex flex-col justify-center items-center gap-2.5">
-            <h6 class="py-5 text-[25px] text-gray-500 font-extrabold text-center">🐾<br>Welcome</h6>
+            <h6 class="py-5 text-gray-500 text-[30px] text-center favFont1">🐾<br>Welcome</h6>
             <button
-                class="w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
+                class="w-[50%] sm:w-[40%] h-fit rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300 btnFont text-[20px]">Login</button>
             <button
-                class="w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Sign-Up</button>
+                class="w-[50%] sm:w-[40%] h-fit rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300 btnFont text-[20px]">Sign-Up</button>
             <figure class="absolute w-[100px] h-fit top-[100%] left-[-10px] translate-y-[-65%] rotate-[18deg] z-40">
                 <img class="object-cover" src="src/assets/img/Project (20251017013629).png" alt="">
             </figure>
@@ -41,14 +43,16 @@
                     class="material-symbols-outlined absolute right-2.5 top-[50%] translate-y-[-50%] z-50 text-gray-400 cursor-pointer spanSize">visibility_off</span>
             </div>
             <button id="logBtn"
-                class="mt-5 w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300">Login</button>
+                class="mt-5 w-[50%] sm:w-[40%] h-fit py-[5px] rounded-4xl text-center text-white bg-pink-300 cursor-pointer hover:scale-[.9] duration-300 btnFont text-[20px]">Login</button>
 
             <p id="error" class="absolute bottom-[-30%] text-pink-800 text-center"></p>
             <figure
                 class="absolute w-[100px] h-fit bottom-[115%] translate-y-[27%] left-[50%] translate-x-[-50%] -z-50">
                 <img class="object-cover" src="src/assets/img/body.png" alt="">
-                <img class="w-[70px] absolute top-[45%] left-[50%] translate-x-[-50%]" src="src/assets/img/face.png"
-                    alt="">
+                <img id="face" class="w-[70px] absolute top-[45%] left-[50%] translate-x-[-50%]"
+                    src="src/assets/img/face.png" alt="">
+                <img id="hands" src="src/assets/img/hands1.png" alt=""
+                    class="w-[100px] absolute top-[85%] left-[50%] translate-x-[-50%] opacity-0">
             </figure>
         </form>
     </section>
@@ -58,6 +62,8 @@
     let pink = document.getElementById('pink')
     let firstSection = document.getElementById('first')
     let secondSection = document.getElementById('second')
+
+    // ----------------------pink div-------------------------
     Btn.forEach((val) => {
         val.addEventListener('click', () => {
             pink.style.left = '0'
@@ -69,38 +75,26 @@
             secondSection.style.transition = '3s'
         })
     })
+    // -------------------------------------------------------
 
-
-    let _email = document.forms['register']['email'].value
+    let _email = document.forms['register']['email']
     let _pass = document.forms['register']['pass']
     let sp = document.querySelector('span')
     let _error = document.getElementById('error')
     let x = 0
-    // ----------------password visibility------------------
-    sp.addEventListener('click', () => {
-        if (x % 2 === 0) {
-            sp.innerText = 'visibility'
-            _pass.type = 'text'
-        } else {
-            sp.innerText = 'visibility_off'
-            _pass.type = 'password'
-        }
-
-        x++
-    })
     // ----------------------reg ex-------------------------
     //email
     _error.innerText = ""
     function sendform() {
         let flag = 0
-        if (_email == "" || _email == null || _email.search(/<script>/) > 0) {
+        if (_email.value == "" || _email.value == null || _email.value.search(/<script>/) > 0) {
             _error.innerText = '*Invalid Email Address*'
             flag++
         } else if (
-            _email.search(/['@']/) <= 2 ||
-            _email.search(/['.']/) == -1 ||
-            _email.lastIndexOf('.') + 2 > _email.length + 1 ||
-            _email.length < 10
+            _email.value.search(/['@']/) <= 2 ||
+            _email.value.search(/['.']/) == -1 ||
+            _email.value.lastIndexOf('.') + 2 > _email.value.length + 1 ||
+            _email.value.length < 10
         ) {
             _error.innerText = '*Invalid Email Address*'
             flag++
@@ -123,8 +117,43 @@
 
         if (flag) event.preventDefault()
     }
+    // -----------------cat face movement--------------------
+    let face = document.getElementById('face')
+    _email.addEventListener('input', () => {
+        face.style.top = '52%'
+        face.style.transition = '.5s'
+        if (_email.value.length < 20) {
+            let temp = 10 - _email.value.length
+            face.style.transform = `translateX(${-temp}px)`
+        }
+    })
+    //hands
+    let hands = document.getElementById('hands')
+    _pass.addEventListener('input', () => {
+        face.style.transform = 'translateX(0px)'
+        hands.style.top = '45%'
+        hands.style.opacity = '1'
+        hands.style.transition = '1s'
+    })
 
+    // // ----------------password visibility------------------
+    // sp.addEventListener('click', () => {
+    //     if (x % 2 === 0) {
+    //         sp.innerText = 'visibility'
+    //         _pass.type = 'text'
+    //         hands.style.top = '85%'
+    //         hands.style.opacity = '0'
+    //         hands.style.transition = '1s'
+    //     } else {
+    //         sp.innerText = 'visibility_off'
+    //         _pass.type = 'password'
+    //         hands.style.top = '45%'
+    //         hands.style.opacity = '1'
+    //         hands.style.transition = '1s'
+    //     }
 
+    //     x++
+    // })
 </script>
 
 </html>
