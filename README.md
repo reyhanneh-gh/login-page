@@ -34,5 +34,18 @@ This login page was created as part of my journey into mastering regular express
 ### 🧑‍🎨 Credits  
 **Developed by**: Reyhaneh Ghalambor  
 **Date**: October 18, 2025  
-**Mentor**: Parsa Ghorbanian  
+**Mentor**: Parsa Ghorbanian
+
+---
+
+### 📸 Screenshots  
+<table>  
+  <tr>  
+    <td width="70%" valign="top">  
+      <img src="https://github.com/user-attachments/assets/f6dc2c01-2ca1-4b66-b0b6-897a3b340bcf" alt="Desktop View" width="100%" />  
+    </td>  
+    <td width="30%" valign="top">  
+      <img src="https://github.com/user-attachments/assets/a884db03-35da-4425-b49e-e997767093d6" alt="Mobile View" width="100%" />  
+    </td>  
+  </tr>
 
